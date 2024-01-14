@@ -1,0 +1,47 @@
+todo_list = []
+
+
+def display_todo_list():
+    if not todo_list:
+        print("Your to-do list is empty.")
+    else:
+        print("To-Do List:")
+        for task in todo_list:
+            print(f"- {task}")
+    print()
+
+
+def add_task(task):
+    todo_list.append(task)
+    print(f"Task '{task}' added to the to-do list.\n")
+
+
+def remove_task(task):
+    if task in todo_list:
+        todo_list.remove(task)
+        print(f"Task '{task}' removed from the to-do list.\n")
+    else:
+        print("Task not found in the to-do list.\n")
+
+
+while True:
+    print("1. Display To-Do List")
+    print("2. Add Task")
+    print("3. Remove Task")
+    print("4. Exit")
+
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == "1":
+        display_todo_list()
+    elif choice == "2":
+        task = input("Enter the task: ")
+        add_task(task)
+    elif choice == "3":
+        task = input("Enter the task to remove: ")
+        remove_task(task)
+    elif choice == "4":
+        print("Exiting the program. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please enter a valid option.\n")
